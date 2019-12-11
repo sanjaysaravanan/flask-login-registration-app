@@ -1,0 +1,22 @@
+version: '3'
+services:
+  python-app:
+    build: .
+    image: loginapp:latest
+    ports:
+      - '9100:5000'
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - '27019:27017'
+    volumes:
+      - logindb:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+volumes:
+  logindb:
