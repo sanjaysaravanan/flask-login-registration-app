@@ -4,7 +4,7 @@ services:
     build: .
     image: loginapp:latest
     ports:
-      - '9100:5000'
+      - '9100:8000'
     depends_on:
       - mongo
 
